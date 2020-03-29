@@ -5,21 +5,15 @@ import java.util.LinkedList;
 public class MoteurRPN extends Interpreteur{
 	
 	public LinkedList<Double> pile;
-	
+	public LinkedList<EtatPile> historique;	
 	/**
 	 * Constructeur
 	 */
 	public MoteurRPN() {
 		pile = new LinkedList<Double>();
+		historique = new LinkedList<EtatPile>();
 	}
 	
-	/**
-	 * 
-	 * @param number num a empiler
-	 */
-	public void empilerInt(final double number) {
-		pile.push(number);
-	}
 	
 	/**
 	 * Appliquer une operation
@@ -33,18 +27,31 @@ public class MoteurRPN extends Interpreteur{
 			double R;
 			try {
 				R = oper.eval(A,B);
-				if ( B!= 0)
-					this.empilerInt(R);
+				if ( B!= 0) {
+					this.pile.push(R);
+					EtatPile ep=new EtatPile(A,B);
+					historique.push(ep);
+				}
 			} catch (DivParZeroException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				this.empilerInt(B);
-				this.empilerInt(A);
+				this.pile.push(B);
+				this.pile.push(A);
 			}
 		}else {
 			throw new MinDeuxException();
 		}
 	}
+	/**
+	 * Annulation de EVAL
+	 */
+    public void annulerEval() {
+        this.pile.removeLast();
+        this.pile.add(historique.getLast().getO1());
+        this.pile.add(historique.getLast().getO2());
+        this.historique.removeLast();
+    }
+
 	
 	/**
 	 * Retourner les operandes

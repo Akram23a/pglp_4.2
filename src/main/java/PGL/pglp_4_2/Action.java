@@ -8,11 +8,11 @@ package PGL.pglp_4_2;
 public class Action {
 	
     public void actionUndo() {
-        System.out.println("Annulation de la saisie précédente!");
+        System.out.println("ANNULER");
     }
 
     public void actionQuit() {
-        System.out.println("Fin du programme!");
+        System.out.println("QUITER");
     }
 
 }

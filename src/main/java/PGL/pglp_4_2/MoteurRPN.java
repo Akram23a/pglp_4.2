@@ -25,11 +25,25 @@ public class MoteurRPN extends Interpreteur{
 	 * Appliquer une operation
 	 * @param oper operateur
 	 */
-	public void appliquerOperation(final Operation oper) {
-		double A= pile.pop();
-		double B= pile.pop();
-		double R = oper.eval(A,B);
-		this.empilerInt(R);
+	public void appliquerOperation(final Operation oper) throws Exception{
+		if(pile.get(pile.size()) >= 2)
+		{
+			double A= pile.pop();
+			double B= pile.pop();
+			double R;
+			try {
+				R = oper.eval(A,B);
+				if ( B!= 0)
+					this.empilerInt(R);
+			} catch (DivParZeroException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				this.empilerInt(B);
+				this.empilerInt(A);
+			}
+		}else {
+			throw new MinDeuxException();
+		}
 	}
 	
 	/**

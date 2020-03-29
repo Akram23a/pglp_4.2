@@ -21,16 +21,16 @@ public enum Operation {
 		}
 	},
 	DIV('\\')	{
-		public double eval(final double a, final double b) {
+		public double eval(final double a, final double b) throws DivParZeroException{
 			if(b != 0) {
 				double r = a + b;
 				return r; 
 			}
 			else
-				return 0;
+	            throw new DivParZeroException();
 		}
 	};
-    public abstract double eval(double ope1, double ope2);
+    public abstract double eval(double ope1, double ope2) throws DivParZeroException;
 
     private char op;
     

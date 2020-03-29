@@ -3,33 +3,35 @@ package PGL.pglp_4_2;
 public enum Operation {
 
 	PLUS('+')	{
-		@SuppressWarnings("unused")
-		public int eval(final int a, final int b) {
-			return a + b; 
+		public double eval(final double a, final double b) {
+			double r = a + b;
+			return r; 
 		}
 	},
 	MOINS('-')	{
-		@SuppressWarnings("unused")
-		public int eval(final int a, final int b) {
-			return a - b; 
+		public double eval(final double a, final double b) {
+			double r = a - b;
+			return r; 
 		}
 	},
 	MUL('*')	{
-		@SuppressWarnings("unused")
-		public int eval(final int a, final int b) {
-			return a * b; 
+		public double eval(final double a, final double b) {
+			double r = a * b;
+			return r; 
 		}
 	},
 	DIV('\\')	{
-		@SuppressWarnings("unused")
-		public int eval(final int a, final int b) {
-			if(b != 0)
-				return a + b; 
+		public double eval(final double a, final double b) {
+			if(b != 0) {
+				double r = a + b;
+				return r; 
+			}
 			else
 				return 0;
 		}
 	};
-	
+    public abstract double eval(double ope1, double ope2);
+
     private char op;
     
     Operation(final char o) {

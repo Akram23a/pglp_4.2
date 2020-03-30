@@ -25,24 +25,27 @@ public class MoteurRPN extends Interpreteur{
 	 * @param oper operateur
 	 */
 	public void appliquerOperation(final Operation oper) throws Exception{
-	
-			double A= pile.getLast();
-			pile.removeLast();
+			if(pile.size()>=2) {
+				double A= pile.getLast();
+				pile.removeLast();
 
-			double B= pile.getLast();
-			pile.removeLast();
+				double B= pile.getLast();
+				pile.removeLast();
 
-			double R;
-			try {
-				R = oper.eval(A,B);
-					this.pile.addLast(R);
-					EtatPile ep=new EtatPile(A,B);
-					historique.addLast(ep);
-			} catch (DivParZeroException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				this.pile.addLast(B);
-				this.pile.addLast(A);
+				double R;
+				try {
+					R = oper.eval(A,B);
+						this.pile.addLast(R);
+						EtatPile ep=new EtatPile(A,B);
+						historique.addLast(ep);
+				} catch (DivParZeroException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					this.pile.addLast(B);
+					this.pile.addLast(A);
+				}
+			}	else	{
+				throw new MinDeuxException();
 			}
 
 	}

@@ -11,7 +11,9 @@ public class Undo implements Commande {
 	
 	
 	public void apply() {
-		mot.annulerEval();
+        if (!mot.pile.isEmpty()) {
+        	mot.annulerEval();
+        }
 		act.actionUndo();
 	}
 

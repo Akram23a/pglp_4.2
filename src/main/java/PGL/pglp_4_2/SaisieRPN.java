@@ -23,4 +23,42 @@ public class SaisieRPN {
         moteur.ajouterCommande("Undo", undo);
         moteur.ajouterCommande("Quit", quit);
 	}
+	
+	public void interactions() throws Exception {
+
+		while(sc.hasNext()) {
+			
+			if(sc.hasNext("quit")) {
+				moteur.executerCommande("quit");
+				break; 
+			}else if(sc.hasNext("undo")) {
+				moteur.executerCommande("undo");
+			}else if(sc.hasNextInt()) {
+				moteur.pile.push((double) sc.nextInt());
+			}else {		
+				Operation ope = null;
+
+	            String str;
+	            str = sc.next();
+                switch(str.charAt(0)) {
+
+                case '+':
+                	ope = Operation.PLUS;
+                case '-':
+                	ope = Operation.MOINS;
+                case '*':
+                	ope = Operation.MUL;
+                case '/':
+                	ope = Operation.DIV;
+                default:
+                	break;
+                }
+                moteur.appliquerOperation(ope);
+                moteur.ContenuActuel();
+
+			}
+			
+			
+		}
+	}
 }

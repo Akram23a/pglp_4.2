@@ -12,8 +12,8 @@ public class TestMoteurRPN {
     @Test
     public void ajouterOperande() {
         double A = 10;
-        moteur.pile.add((double) 10);
-        double B = moteur.pile.getLast();
+        moteur.getPile().add((double) 10);
+        double B = moteur.getPile().getLast();
         assertTrue(A == B);
     }
 }

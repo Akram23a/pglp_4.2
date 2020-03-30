@@ -1,7 +1,6 @@
 package PGL.pglp_4_2;
 /**
  * @author Akram
- *
  */
 public class RPNException extends Exception {
 	/**

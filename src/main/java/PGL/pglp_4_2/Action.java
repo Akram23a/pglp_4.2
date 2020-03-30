@@ -1,16 +1,16 @@
 package PGL.pglp_4_2;
 /**
- * @author Akram
+ * @author Akram.
  */
 public class Action {
-	/**
-	 * Cancel
-	 */
-    public void actionUndo() {
+/**
+ * Cancel.
+ */
+    public final void actionUndo() {
         System.out.println("ANNULER");
     }
     /**
-     * Quit
+     * Quit.
      */
     public final void actionQuit() {
         System.out.println("QUITER");

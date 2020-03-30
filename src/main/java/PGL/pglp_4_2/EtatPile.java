@@ -4,9 +4,9 @@ package PGL.pglp_4_2;
  *
  */
 public class EtatPile {
-	/**
-	 * o1.
-	 */
+/**
+ * o1.
+ */
 	private double o1;
 	/**
 	 * o2.

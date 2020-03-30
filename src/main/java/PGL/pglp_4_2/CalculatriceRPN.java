@@ -6,19 +6,19 @@ public enum CalculatriceRPN {
 /**
  *
  */
-	Envirennement;
+Envirennement;
 	/**
-	 * @throws Exception.
+	 * @throws Exception
 	 */
 	public void run() throws Exception {
-		SaisieRPN S = new SaisieRPN();
-		S.interactions();
+		SaisieRPN s = new SaisieRPN();
+		s.interactions();
 	}
 	/**
 	 * @param args Args.
 	 * @throws Exception Excep.
 	 */
-	public static void main(String[] args) throws Exception{
+	public static void main(final String[] args) throws Exception {
 		Envirennement.run();
 	}
 }

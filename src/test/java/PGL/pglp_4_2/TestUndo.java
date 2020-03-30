@@ -13,15 +13,15 @@ public class TestUndo {
     public void undoTest() throws Exception {
     	
     	SaisieRPN S=new SaisieRPN();
-		S.moteur.pile.addLast(20.0);
-		S.moteur.historiqueOp.add(false);
-		S.moteur.pile.addLast(30.0);
-		S.moteur.historiqueOp.add(false);
-		S.moteur.pile.addLast(40.0);
-		S.moteur.historiqueOp.add(false);
-        S.moteur.appliquerOperation(Operation.PLUS);
-		S.moteur.historiqueOp.add(true);
-		S.moteur.executerCommande("undo");
-		assertTrue(40 == S.moteur.pile.getLast());
+		S.getMoteur().getPile().addLast(20.0);
+		S.getMoteur().getHistoriqueOp().add(false);
+		S.getMoteur().getPile().addLast(30.0);
+		S.getMoteur().getHistoriqueOp().add(false);
+		S.getMoteur().getPile().addLast(40.0);
+		S.getMoteur().getHistoriqueOp().add(false);
+        S.getMoteur().appliquerOperation(Operation.PLUS);
+		S.getMoteur().getHistoriqueOp().add(true);
+		S.getMoteur().executerCommande("undo");
+		assertTrue(40 == S.getMoteur().getPile().getLast());
     }
 }

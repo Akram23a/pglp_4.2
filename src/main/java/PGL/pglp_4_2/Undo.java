@@ -3,10 +3,13 @@ package PGL.pglp_4_2;
  * @author Akram
  */
 public class Undo implements Commande {
+/**
+ *
+ */
+	private Action act;
 	/**
 	 *
 	 */
-	private Action act;
 	private MoteurRPN mot;
 	/**
 	 * @param m moteur
@@ -20,7 +23,7 @@ public class Undo implements Commande {
 	 *
 	 */
 	public final void apply() {
-        if (!mot.pile.isEmpty()) {
+        if (!mot.getPile().isEmpty()) {
         	mot.annulerEval();
         }
 		act.actionUndo();

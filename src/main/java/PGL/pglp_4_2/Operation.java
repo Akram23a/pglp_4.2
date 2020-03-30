@@ -3,7 +3,7 @@ package PGL.pglp_4_2;
  * @author Akram
  */
 public enum Operation {
-	/**
+/**
 	 *
 	 */
 	PLUS('+') {
@@ -22,8 +22,8 @@ public enum Operation {
 	 */
 	MOINS('-') {
 		/**
-		 * @param a val1
-		 * @param b val 2
+		 * @param a val1.
+		 * @param b val2.
 		 * @return resultat
 		 */
 		public double eval(final double a, final double b) {
@@ -36,8 +36,8 @@ public enum Operation {
 	 */
 	MUL('*') {
 		/**
-		 * @param a val1
-		 * @param b val 2
+		 * @param a val1.
+		 * @param b val2.
 		 * @return resultat
 		 */
 		public double eval(final double a, final double b) {
@@ -50,10 +50,10 @@ public enum Operation {
 	 */
 	DIV('/') {
 		/**
-		 * @param a val1
-		 * @param b val 2
-		 * @return resultat
-		 * @throws DivParZeroException
+		 * @param a val1.
+		 * @param b val2.
+		 * @return resultat.
+		 * @throws DivParZeroException exception.
 		 */
 		public double eval(final double a, final double b)
 				throws DivParZeroException {
@@ -73,6 +73,9 @@ public enum Operation {
 	 */
     public abstract double eval(double ope1, double ope2)
     		throws DivParZeroException;
+    /**
+     *
+     */
     private char op;
     /**
      * @param o construire operation

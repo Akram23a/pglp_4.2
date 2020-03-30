@@ -8,23 +8,23 @@ public class SaisieRPN {
 	/**
 	 * Attribus
 	 */
-	public Scanner sc;
+	private Scanner sc;
 	/**
 	 *
 	 */
-	public MoteurRPN moteur;
+	private MoteurRPN moteur;
 	/**
 	 *
 	 */
-	public Action act;
+	private Action act;
 	/**
 	 *
 	 */
-	public Commande undo;
+	private Commande undo;
 	/**
 	 *
 	 */
-	public Commande quit;
+	private Commande quit;
 	/**
 	 *
 	 */
@@ -54,8 +54,8 @@ public class SaisieRPN {
 				ss = "";
                 ss = sc.next();
 			} else if (sc.hasNextDouble()) {
-				moteur.pile.addLast(sc.nextDouble());
-				moteur.historiqueOp.add(false);
+				moteur.getPile().addLast(sc.nextDouble());
+				moteur.getHistoriqueOp().add(false);
 			} else {
 				Operation ope = null;
 	            char str;
@@ -77,10 +77,16 @@ public class SaisieRPN {
                 default:
                 	break;
                 }
-				moteur.historiqueOp.add(true);
+				moteur.getHistoriqueOp().add(true);
                 moteur.appliquerOperation(ope);
 			}
             moteur.contenuActuel();
 		}
+	}
+	/**
+	 * @return moteur
+	 */
+	public final MoteurRPN getMoteur() {
+		return moteur;
 	}
 }

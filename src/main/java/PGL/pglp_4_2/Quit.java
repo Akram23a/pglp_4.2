@@ -5,7 +5,7 @@ public class Quit implements Commande{
 	private Action act = new Action();
 
     
-    public void QuitCom(final Action action){
+    public Quit(final Action action){
         this.act = action;
     }
 

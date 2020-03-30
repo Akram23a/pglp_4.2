@@ -1,45 +1,44 @@
 package PGL.pglp_4_2;
-
 import java.util.HashMap;
-
+/**
+ * @author Akram
+ */
 public class Interpreteur {
-	
+	/**
+	 * Commandes
+	 */
 	private HashMap<String, Commande> commandes;
 	/**
-	 * 
+	 * Interpreteur const
 	 */
 	public Interpreteur() {
 		setCommandes(new HashMap<String, Commande>());
 	}
 	/**
-	 * 
-	 * @param St
-	 * @param cmd
+	 * @param st string
+	 * @param cmd commande
 	 */
-	public void ajouterCommande(final String St, final Commande cmd) {
-		commandes.put(St, cmd);
+	public final void ajouterCommande(final String st, final Commande cmd) {
+		commandes.put(st, cmd);
 	}
 	/**
-	 * 
-	 * @param cmd
+	 * @param cmd commande
 	 */
-	public void executerCommande(final String cmd) {
+	public final void executerCommande(final String cmd) {
         Commande commande = commandes.get(cmd);
         commande.apply();
 
 	}
 	/**
-	 * 
-	 * @return
+	 * @return commande
 	 */
-	public HashMap<String, Commande> getCommandes() {
+	public final HashMap<String, Commande> getCommandes() {
 		return commandes;
 	}
 	/**
-	 * 
-	 * @param commandes
+	 * @param cmds commandes
 	 */
-	public void setCommandes(final HashMap<String, Commande> commandes) {
-		this.commandes = commandes;
+	public final void setCommandes(final HashMap<String, Commande> cmds) {
+		this.commandes = cmds;
 	}
 }

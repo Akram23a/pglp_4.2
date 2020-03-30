@@ -1,62 +1,95 @@
 package PGL.pglp_4_2;
-
+/**
+ * @author Akram
+ */
 public enum Operation {
-	PLUS('+')	{
+	/**
+	 *
+	 */
+	PLUS('+') {
+		/**
+		 * @param a val1
+		 * @param b val 2
+		 * @return resultat
+		 */
 		public double eval(final double a, final double b) {
 			double r = a + b;
-			return r; 
+			return r;
 		}
 	},
-	MOINS('-')	{
+	/**
+	 *
+	 */
+	MOINS('-') {
+		/**
+		 * @param a val1
+		 * @param b val 2
+		 * @return resultat
+		 */
 		public double eval(final double a, final double b) {
 			double r = a - b;
-			return r; 
+			return r;
 		}
 	},
-	MUL('*')	{
+	/**
+	 *
+	 */
+	MUL('*') {
+		/**
+		 * @param a val1
+		 * @param b val 2
+		 * @return resultat
+		 */
 		public double eval(final double a, final double b) {
 			double r = a * b;
-			return r; 
+			return r;
 		}
 	},
-	DIV('/')	{
-		public double eval(final double a, final double b) throws DivParZeroException{
-			if(b != 0) {
+	/**
+	 *
+	 */
+	DIV('/') {
+		/**
+		 * @param a val1
+		 * @param b val 2
+		 * @return resultat
+		 * @throws DivParZeroException
+		 */
+		public double eval(final double a, final double b)
+				throws DivParZeroException {
+			if (b != 0) {
 				double r = a / b;
 				return r; 
-			}
-			else
+			} else {
 	            throw new DivParZeroException();
+			}
 		}
 	};
 	/**
-	 * 
-	 * @param ope1
-	 * @param ope2
-	 * @return
-	 * @throws DivParZeroException
+	 * @param ope1 operande1
+	 * @param ope2 operande 2
+	 * @return resultat
+	 * @throws DivParZeroException exception
 	 */
-    public abstract double eval(double ope1, double ope2) throws DivParZeroException;
+    public abstract double eval(double ope1, double ope2)
+    		throws DivParZeroException;
     private char op;
     /**
-     * 
-     * @param o
+     * @param o construire operation
      */
     Operation(final char o) {
         this.setSymbole(o);
     }
     /**
-     * 
-     * @return
+     * @return symbole
      */
-    public char getSymbole() {
+    public final char getSymbole() {
     	return op;
     }
     /**
-     * 
-     * @param o
+     * @param o nouvelle operation
      */
-    public void setSymbole(final char o) {
+    public final void setSymbole(final char o) {
          op = o;
     }
  }

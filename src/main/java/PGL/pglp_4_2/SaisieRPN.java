@@ -1,50 +1,67 @@
 package PGL.pglp_4_2;
 
 import java.util.Scanner;
-
+/**
+ * @author Akram
+ */
 public class SaisieRPN {
-
+	/**
+	 * Attribus
+	 */
 	public Scanner sc;
+	/**
+	 *
+	 */
 	public MoteurRPN moteur;
+	/**
+	 *
+	 */
 	public Action act;
-	
+	/**
+	 *
+	 */
 	public Commande undo;
+	/**
+	 *
+	 */
 	public Commande quit;
-	
-	
+	/**
+	 *
+	 */
+	private String ss;
+	/**
+	 * Saisie.
+	 */
 	public SaisieRPN() {
         sc = new Scanner(System.in);
         moteur = new MoteurRPN();
         act = new Action();
-        
         undo = new Undo(moteur, act);
         quit = new Quit(act);
-        
         moteur.ajouterCommande("undo", undo);
         moteur.ajouterCommande("quit", quit);
 	}
-	
-	public void interactions() throws Exception {
-		String ss="";
-		while(sc.hasNext()) {
-			
-			if(sc.hasNext("quit")) {
+	/**
+	 * @throws Exception exceptions.
+	 */
+	public final void interactions() throws Exception {
+		while (sc.hasNext()) {
+			if (sc.hasNext("quit")) {
 				moteur.executerCommande("quit");
-				break; 
-			}else if(sc.hasNext("undo")) {
+				break;
+			} else if (sc.hasNext("undo")) {
 				moteur.executerCommande("undo");
-                ss=sc.next();
-			}else if(sc.hasNextDouble()) {
+				ss = "";
+                ss = sc.next();
+			} else if (sc.hasNextDouble()) {
 				moteur.pile.addLast(sc.nextDouble());
 				moteur.historiqueOp.add(false);
-			}else {		
+			} else {
 				Operation ope = null;
-
 	            char str;
 	            str = sc.next().charAt(0);
 
-                switch(str) {
-
+                switch (str) {
                 case '+':
                 	ope = Operation.PLUS;
                 	break;
@@ -63,9 +80,7 @@ public class SaisieRPN {
 				moteur.historiqueOp.add(true);
                 moteur.appliquerOperation(ope);
 			}
-			
-            moteur.ContenuActuel();
-
+            moteur.contenuActuel();
 		}
 	}
 }

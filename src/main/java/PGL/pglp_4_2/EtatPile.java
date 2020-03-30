@@ -1,42 +1,47 @@
 package PGL.pglp_4_2;
-
+/**
+ * @author Akram
+ *
+ */
 public class EtatPile {
-	
-	private double o1;
-	private double o2;
-	
 	/**
-	 * 
-	 * @param a
-	 * @param b
+	 * o1.
+	 */
+	private double o1;
+	/**
+	 * o2.
+	 */
+	private double o2;
+	/**
+	 * @param a op1
+	 * @param b op2
 	 */
 	public EtatPile(final double a, final double b) {
 		setO1(a);
 		setO2(b);
 	}
-
-	public double getO1() {
+	/**
+	 * @return o1
+	 */
+	public final double getO1() {
 		return o1;
 	}
 	/**
-	 * 
-	 * @param o1
+	 * @param o operande
 	 */
-	public void setO1(final double o1) {
-		this.o1 = o1;
+	public final void setO1(final double o) {
+		this.o1 = o;
 	}
 	/**
-	 * 
-	 * @return
+	 * @return operande
 	 */
-	public double getO2() {
+	public final double getO2() {
 		return o2;
 	}
 	/**
-	 * 
-	 * @param o2
+	 * @param o operande
 	 */
-	public void setO2(final double o2) {
-		this.o2 = o2;
+	public final void setO2(final double o) {
+		this.o2 = o;
 	}
 }

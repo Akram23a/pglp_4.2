@@ -1,8 +1,6 @@
 package PGL.pglp_4_2;
 /**
- * receiver class
  * @author Akram
- *
  */
 public class Action {
 	/**
@@ -14,7 +12,7 @@ public class Action {
     /**
      * Quit
      */
-    public void actionQuit() {
+    public final void actionQuit() {
         System.out.println("QUITER");
     }
 }

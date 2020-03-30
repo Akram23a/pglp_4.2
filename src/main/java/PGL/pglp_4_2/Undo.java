@@ -1,43 +1,41 @@
 package PGL.pglp_4_2;
-
+/**
+ * @author Akram
+ */
 public class Undo implements Commande {
-	
+	/**
+	 *
+	 */
 	private Action act;
 	private MoteurRPN mot;
-	
 	/**
-	 * 
-	 * @param m
-	 * @param a
+	 * @param m moteur
+	 * @param a action
 	 */
 	public Undo(final MoteurRPN m, final Action a) {
 		setMot(m);
 		act = a;
 	}
-	
 	/**
-	 * 
+	 *
 	 */
-	public void apply() {
+	public final void apply() {
         if (!mot.pile.isEmpty()) {
         	mot.annulerEval();
         }
 		act.actionUndo();
 	}
-
 	/**
-	 * 
-	 * @return
+	 * @return moteur
 	 */
-	public MoteurRPN getMot() {
+	public final MoteurRPN getMot() {
 		return mot;
 	}
-
 	/**
-	 * 
-	 * @param mot
+	 *
+	 * @param mo moteur
 	 */
-	public void setMot(MoteurRPN mot) {
-		this.mot = mot;
+	public final void setMot(final MoteurRPN mo) {
+		this.mot = mo;
 	}
 }

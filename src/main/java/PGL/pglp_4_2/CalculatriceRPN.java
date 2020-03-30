@@ -1,20 +1,17 @@
 package PGL.pglp_4_2;
 
 public enum CalculatriceRPN {
-Envirennement;
+
+	Envirennement;
 	
 	public void run() throws Exception {
-        SaisieRPN S = new SaisieRPN();
-        try {
-			S.interactions();
-		} catch (RPNException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		SaisieRPN S = new SaisieRPN();
+		S.interactions();
 
 	}
 	
-	public void main(String[] Args) throws Exception{
+	public static void main(String[] args) throws Exception{
 		Envirennement.run();
 	}
 }

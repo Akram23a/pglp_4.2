@@ -20,10 +20,10 @@ public enum Operation {
 			return r; 
 		}
 	},
-	DIV('\\')	{
+	DIV('/')	{
 		public double eval(final double a, final double b) throws DivParZeroException{
 			if(b != 0) {
-				double r = a + b;
+				double r = a / b;
 				return r; 
 			}
 			else

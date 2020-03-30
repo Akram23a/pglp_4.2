@@ -6,12 +6,15 @@ public class MoteurRPN extends Interpreteur{
 	
 	public LinkedList<Double> pile;
 	public LinkedList<EtatPile> historique;	
+	
+	public LinkedList<Action> actions;
 	/**
 	 * Constructeur
 	 */
 	public MoteurRPN() {
 		pile = new LinkedList<Double>();
 		historique = new LinkedList<EtatPile>();
+		actions = new LinkedList<Action>();
 	}
 	
 	
@@ -51,8 +54,7 @@ public class MoteurRPN extends Interpreteur{
         this.pile.add(historique.getLast().getO2());
         this.historique.removeLast();
     }
-
-	
+    
 	/**
 	 * Retourner les operandes
 	 */

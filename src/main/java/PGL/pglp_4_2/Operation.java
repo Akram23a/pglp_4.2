@@ -1,7 +1,6 @@
 package PGL.pglp_4_2;
 
 public enum Operation {
-
 	PLUS('+')	{
 		public double eval(final double a, final double b) {
 			double r = a + b;
@@ -30,20 +29,34 @@ public enum Operation {
 	            throw new DivParZeroException();
 		}
 	};
+	/**
+	 * 
+	 * @param ope1
+	 * @param ope2
+	 * @return
+	 * @throws DivParZeroException
+	 */
     public abstract double eval(double ope1, double ope2) throws DivParZeroException;
-
     private char op;
-    
+    /**
+     * 
+     * @param o
+     */
     Operation(final char o) {
         this.setSymbole(o);
     }
-        public char getSymbole() {
-            return op;
-        }
-    
-        public void setSymbole(final char o) {
-            this.op = o;
-        }
-
+    /**
+     * 
+     * @return
+     */
+    public char getSymbole() {
+    	return op;
+    }
+    /**
+     * 
+     * @param o
+     */
+    public void setSymbole(final char o) {
+         op = o;
+    }
  }
-

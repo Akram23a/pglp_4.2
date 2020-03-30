@@ -6,7 +6,6 @@ public class MoteurRPN extends Interpreteur{
 	
 	public LinkedList<Double> pile;
 	public LinkedList<Action> actions;
-	
 	public LinkedList<EtatPile> historique;	
 	public LinkedList<Boolean> historiqueOp;
 	/**
@@ -18,8 +17,6 @@ public class MoteurRPN extends Interpreteur{
 		historiqueOp = new LinkedList<Boolean>();
 		actions = new LinkedList<Action>();
 	}
-	
-	
 	/**
 	 * Appliquer une operation
 	 * @param oper operateur
@@ -28,10 +25,8 @@ public class MoteurRPN extends Interpreteur{
 			if(pile.size()>=2) {
 				double A= pile.getLast();
 				pile.removeLast();
-
 				double B= pile.getLast();
 				pile.removeLast();
-
 				double R;
 				try {
 					R = oper.eval(A,B);
@@ -44,10 +39,9 @@ public class MoteurRPN extends Interpreteur{
 					this.pile.addLast(B);
 					this.pile.addLast(A);
 				}
-			}	else	{
+			} else {
 				throw new MinDeuxException();
 			}
-
 	}
 	/**
 	 * Annulation de EVAL
@@ -62,8 +56,6 @@ public class MoteurRPN extends Interpreteur{
             pile.addLast(P.getO2());
             pile.addLast(P.getO1());
     	}
-
-       
     }
 	/**
 	 * Retourner les operandes
@@ -75,5 +67,5 @@ public class MoteurRPN extends Interpreteur{
         }
         System.out.print("] \n");
     }
-
 }
+
